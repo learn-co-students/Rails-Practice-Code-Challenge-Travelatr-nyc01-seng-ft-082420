@@ -15,10 +15,6 @@ class BloggersController < ApplicationController
 
   def show
     @blogger = Blogger.find(params[:id])
-    if @like
-      @blogger.like += 1
-      @blogger.save
-    end
   end
 
   private

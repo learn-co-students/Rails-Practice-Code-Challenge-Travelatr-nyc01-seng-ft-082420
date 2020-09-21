@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(post_params)
+    @post = Post.new
   end
 
   def create
@@ -33,4 +33,16 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+
+  def like
+    @post = Post.find(params[:id])
+    @post.likes += 1
+    @post.save
+    redirect_to @post
+  end
+
+  private
+    def post_params
+      params.require(:post).permit!
+    end
 end

@@ -1,5 +1,7 @@
 <h2><%= @post.title %></h2>
 <sub><%= link_to(@post.blogger.name, blogger_path(@post.blogger)) %></sub>
 <sub><%= link_to(@post.destination.name, destination_path(@post.destination)) %></sub>
-<%= button_to "Likes", post_path(@post)%>
-<% @like %>
+<div>
+  <p style="width:auto;"><%= @post.content %></p>
+</div>
+<%= button_to "Likes", like_post_path(@post), method: :patch%>
