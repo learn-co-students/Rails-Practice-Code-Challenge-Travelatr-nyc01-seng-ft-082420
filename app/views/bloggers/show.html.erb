@@ -1,0 +1,7 @@
+<h1><%= @blogger.name %></h1>
+
+<% @blogger.posts.each do |post| %>
+<%= post.likes %>
+<% end %>
+
+<%= link_to @blogger.best_post.title,  post_path(@blogger.post)%>
